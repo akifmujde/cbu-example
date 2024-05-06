@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  cbu-db:
+    container_name: cbu-db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=cbu
+    ports:
+      - '5432:5432'
+    volumes:
+      - cbu_db:/var/lib/cbu-postgresql/data
+volumes:
+  cbu_db:
+    driver: local
